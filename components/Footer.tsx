@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer id="contact" className="bg-gray-900 border-t border-gray-800">
+    <footer className="bg-gray-900 border-t border-gray-800">
       <div className="container mx-auto px-6 py-12">
         <div className="text-center mb-8">
             <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300 mb-2">
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
             </a>
         </div>
         <div className="flex flex-col items-center sm:flex-row sm:justify-between pt-8 border-t border-gray-700/50">
-          <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} AI Automation Agency. All rights reserved.</p>
+          <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} Zenith-AI. All rights reserved.</p>
           <div className="flex -mx-2 mt-4 sm:mt-0">
             {socialLinks.map(link => (
               <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="mx-2 text-gray-400 hover:text-cyan-400 transition-colors duration-300" aria-label={link.name}>

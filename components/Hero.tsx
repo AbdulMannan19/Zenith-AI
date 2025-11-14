@@ -44,6 +44,20 @@ const Hero: React.FC = () => {
        <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-500"></div>
        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-transparent to-gray-900"></div>
 
+       {/* Floating 3D Shapes */}
+       <div className="absolute top-20 left-10 w-16 h-16 floating-shape opacity-20 pointer-events-none">
+         <div className="w-full h-full bg-cyan-400/30 rounded-lg transform rotate-45"></div>
+       </div>
+       <div className="absolute bottom-40 right-20 w-12 h-12 floating-shape opacity-20 pointer-events-none">
+         <div className="w-full h-full bg-blue-500/30 rounded-full"></div>
+       </div>
+       <div className="absolute top-1/2 right-1/4 w-10 h-10 floating-shape opacity-15 pointer-events-none">
+         <div className="w-full h-full bg-cyan-300/30 transform rotate-45"></div>
+       </div>
+       <div className="absolute bottom-20 left-1/3 w-14 h-14 floating-shape opacity-20 pointer-events-none">
+         <div className="w-full h-full border-2 border-cyan-400/20 rounded-lg"></div>
+       </div>
+
     </section>
   );
 };

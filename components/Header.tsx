@@ -1,11 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState<string>('');
   const navLinks = ['Services', 'Projects', 'About', 'Contact'];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => link.toLowerCase());
+      const scrollPosition = window.scrollY + 150;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveLink(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
+    setActiveLink(targetId); // Set active immediately on click
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -19,12 +43,22 @@ const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-gray-900/50 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#home" onClick={(e) => handleScroll(e, 'home')} className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-          AI Automation Agency
+          Zenith-AI
         </a>
         <nav className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a key={link} href={`#${link.toLowerCase()}`} onClick={(e) => handleScroll(e, link.toLowerCase())} className="text-gray-300 hover:text-white transition-colors duration-300">{link}</a>
-          ))}
+          {navLinks.map((link) => {
+            const linkId = link.toLowerCase();
+            return (
+              <a
+                key={link}
+                href={`#${linkId}`}
+                onClick={(e) => handleScroll(e, linkId)}
+                className={`nav-link text-gray-300 hover:text-white transition-all duration-300 ${activeLink === linkId ? 'active' : ''}`}
+              >
+                {link}
+              </a>
+            );
+          })}
         </nav>
         <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-transform duration-300 ease-in-out hover:scale-105">
           Get a Quote
@@ -40,9 +74,19 @@ const Header: React.FC = () => {
       {isOpen && (
         <div className="md:hidden bg-gray-900/80 backdrop-blur-md">
           <nav className="flex flex-col items-center py-4 space-y-4">
-            {navLinks.map((link) => (
-              <a key={link} href={`#${link.toLowerCase()}`} onClick={(e) => handleScroll(e, link.toLowerCase())} className="text-gray-300 hover:text-white transition-colors duration-300">{link}</a>
-            ))}
+            {navLinks.map((link) => {
+              const linkId = link.toLowerCase();
+              return (
+                <a
+                  key={link}
+                  href={`#${linkId}`}
+                  onClick={(e) => handleScroll(e, linkId)}
+                  className={`nav-link text-gray-300 hover:text-white transition-all duration-300 ${activeLink === linkId ? 'active' : ''}`}
+                >
+                  {link}
+                </a>
+              );
+            })}
             <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-transform duration-300 ease-in-out hover:scale-105">
               Get a Quote
             </a>

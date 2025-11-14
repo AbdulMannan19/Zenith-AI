@@ -5,7 +5,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Automation Agency</title>
+    <title>Zenith-AI - AI Automation Agency</title>
+    <meta name="description" content="Supercharge your business with AI & Automation. We build intelligent solutions to streamline workflows, boost efficiency, and drive unprecedented growth." />
+    <meta name="keywords" content="AI automation, artificial intelligence, business automation, AI chatbots, web development, app development, lead generation" />
+    <meta property="og:title" content="Zenith-AI - AI Automation Agency" />
+    <meta property="og:description" content="Supercharge your business with AI & Automation. We build intelligent solutions to streamline workflows and drive growth." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zenith-AI - AI Automation Agency" />
+    <meta name="twitter:description" content="Supercharge your business with AI & Automation." />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -43,6 +51,305 @@
       @keyframes spin {
         from { transform: rotateY(0deg) rotateX(0deg); }
         to { transform: rotateY(360deg) rotateX(360deg); }
+      }
+
+      /* 3D Service Card */
+      .service-card-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card-3d:hover {
+        transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+      }
+
+      /* 3D Project Card */
+      .project-card-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.4s ease;
+        perspective: 1000px;
+      }
+
+      .project-card-3d:hover {
+        transform: translateZ(20px) rotateY(5deg);
+      }
+
+      .project-card-3d .project-image {
+        transform: translateZ(0);
+        transition: transform 0.4s ease;
+      }
+
+      .project-card-3d:hover .project-image {
+        transform: translateZ(30px) scale(1.05);
+      }
+
+      /* 3D Floating Shapes */
+      .floating-shape {
+        position: absolute;
+        transform-style: preserve-3d;
+        animation: float3d 6s ease-in-out infinite;
+      }
+
+      .floating-shape:nth-child(2n) {
+        animation-delay: -2s;
+        animation-duration: 8s;
+      }
+
+      .floating-shape:nth-child(3n) {
+        animation-delay: -4s;
+        animation-duration: 10s;
+      }
+
+      @keyframes float3d {
+        0%, 100% {
+          transform: translateY(0) rotateX(0deg) rotateY(0deg);
+        }
+        50% {
+          transform: translateY(-30px) rotateX(180deg) rotateY(180deg);
+        }
+      }
+
+      /* 3D Icon Container */
+      .icon-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+      }
+
+      .icon-3d:hover {
+        transform: translateZ(20px) rotateY(15deg);
+      }
+
+      /* Scroll Animation Classes */
+      .scroll-fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .scroll-fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-slide-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-slide-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scroll-slide-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-slide-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scroll-scale-up {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      }
+
+      .scroll-scale-up.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Staggered animations for children */
+      .scroll-stagger > * {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .scroll-stagger.visible > *:nth-child(1) {
+        transition-delay: 0.1s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(2) {
+        transition-delay: 0.2s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(3) {
+        transition-delay: 0.3s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(4) {
+        transition-delay: 0.4s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(5) {
+        transition-delay: 0.5s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(6) {
+        transition-delay: 0.6s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(7) {
+        transition-delay: 0.7s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(8) {
+        transition-delay: 0.8s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(9) {
+        transition-delay: 0.9s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(10) {
+        transition-delay: 1s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(11) {
+        transition-delay: 1.1s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-stagger.visible > *:nth-child(n+12) {
+        transition-delay: 1.2s;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Header Navigation Glow and Pop Effect */
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        color: #60a5fa !important;
+        transform: translateY(-3px) scale(1.1);
+        text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 40px rgba(96, 165, 250, 0.4);
+        animation: navGlow 0.6s ease-out;
+      }
+
+      .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+        box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+        animation: navUnderline 0.6s ease-out;
+      }
+
+      @keyframes navGlow {
+        0% {
+          transform: translateY(0) scale(1);
+          text-shadow: 0 0 0 rgba(96, 165, 250, 0);
+        }
+        50% {
+          transform: translateY(-5px) scale(1.15);
+          text-shadow: 0 0 30px rgba(96, 165, 250, 1), 0 0 50px rgba(96, 165, 250, 0.6);
+        }
+        100% {
+          transform: translateY(-3px) scale(1.1);
+          text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 40px rgba(96, 165, 250, 0.4);
+        }
+      }
+
+      @keyframes navUnderline {
+        0% {
+          width: 0;
+          opacity: 0;
+        }
+        100% {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+
+      /* 3D Robot Structure */
+      .robot-3d {
+        transform-style: preserve-3d;
+        animation: robotFloat 4s ease-in-out infinite;
+      }
+
+      .robot-head {
+        transform-style: preserve-3d;
+        animation: robotHeadBob 2s ease-in-out infinite;
+      }
+
+      .robot-body {
+        transform-style: preserve-3d;
+        animation: robotBodySway 3s ease-in-out infinite;
+      }
+
+      @keyframes robotFloat {
+        0%, 100% {
+          transform: translateY(0) rotateY(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotateY(10deg);
+        }
+      }
+
+      @keyframes robotHeadBob {
+        0%, 100% {
+          transform: translateY(0) rotateX(0deg);
+        }
+        50% {
+          transform: translateY(-5px) rotateX(5deg);
+        }
+      }
+
+      @keyframes robotBodySway {
+        0%, 100% {
+          transform: rotateY(0deg);
+        }
+        50% {
+          transform: rotateY(-5deg);
+        }
+      }
+
+      /* 3D Geometric Structures */
+      .geometric-3d {
+        transform-style: preserve-3d;
+        animation: geometricRotate 20s infinite linear;
+      }
+
+      @keyframes geometricRotate {
+        from {
+          transform: rotateY(0deg) rotateX(0deg);
+        }
+        to {
+          transform: rotateY(360deg) rotateX(360deg);
+        }
       }
     </style>
   <script type="importmap">
